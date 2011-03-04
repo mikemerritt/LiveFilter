@@ -1,8 +1,14 @@
 /***********************************************************/
 /*                    LiveFilter Plugin                    */
+<<<<<<< HEAD
 /*                      Version: 1.4                       */
 /*                      Mike Merritt                       */
 /*             	   Updated: Mar 04, 2011                   */
+=======
+/*                      Version: 1.3                       */
+/*                      Mike Merritt                       */
+/*             	   Updated: Mar 03, 2011                   */
+>>>>>>> 1e6f45e5affab4eca5547157bd01dee1c773313d
 /***********************************************************/
 
 (function($){
@@ -15,7 +21,11 @@
 			hideDefault: false,
 			zebra: false,
 			zBase: false,
+<<<<<<< HEAD
 			addInputs: false
+=======
+			addInputs: false,
+>>>>>>> 1e6f45e5affab4eca5547157bd01dee1c773313d
 		};
 
 		// Overwrite default settings with user provided ones.
