@@ -15,7 +15,7 @@
 			hideDefault: false,
 			zebra: false,
 			zBase: false,
-			addInputs: false,
+			addInputs: false
 		};
 
 		// Overwrite default settings with user provided ones.
