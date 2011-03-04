@@ -11,18 +11,19 @@ h1											{ padding: 20px 0px 0px 0px; color: #268eff; letter-spacing: -1px; 
 /* Gloabal Styles
 *************************************/
 #page_wrapper								{ width: 960px; margin: 0px auto 0px auto; }
-#list_wrapper								{ width: 300px; padding: 0px 0px 30px 0px; margin: 0px auto 0px auto; float: left; display: inline; }
-#table_wrapper								{ width: 500px; padding: 0px 0px 30px 0px; margin: 0px auto 0px auto; float: right; display: inline; }
-#page_wrapper input.filter					{ width: 288px; height: 30px; margin: 0px 0px 10px 0px; padding: 0px 5px 0px 5px; border: 1px solid #2a5d9c; font-size: 16px; color: #ffffff; background: #112f55; }
-#page_wrapper ul.live_filter				{ list-style: none; margin: 0px; padding: 0px; }
-#page_wrapper ul.live_filter li				{ width: 300px; height: 30px; margin: 0px; border-bottom: 1px solid #061220; background: url(../images/list-item-bg.gif) 0px 0px no-repeat; }
-#page_wrapper ul.live_filter li	a			{ display: block; width: 293px; height: 23px; padding: 7px 0px 0px 7px; color: #ffffff; text-decoration: none; }
-#page_wrapper ul.live_filter li	a:hover		{ text-decoration: underline; }
-
-#page_wrapper table							{ width: 500px; }
-#page_wrapper table tr						{ width: 500px; height: 30px; margin: 0px; padding: 0px 0px 0px 0px; border: 0px; border-bottom: 1px solid #061220; background: #174175; }
-#page_wrapper table thead tr				{ background: #2a5d9c; }
-#page_wrapper table tr td.title				{ width: 425px; text-align: left; border-right: 1px solid #061220; padding: 5px 0px 0px 5px; }
-#page_wrapper table tr th.title				{ width: 425px; text-align: left; border-right: 1px solid #061220; padding: 5px 0px 0px 5px; }
-#page_wrapper table tr td.date				{ width: 65px; text-align: left; padding: 5px 0px 0px 5px; }
-#page_wrapper table tr th.date				{ width: 65px; text-align: left; padding: 5px 0px 0px 5px; }
+.list_filter								{ width: 300px; padding: 0px 0px 30px 0px; margin: 0px auto 0px auto; float: left; display: inline; }
+.table_filter								{ width: 500px; padding: 0px 0px 30px 0px; margin: 0px auto 0px auto; float: right; display: inline; }
+input.filter								{ width: 203px; height: 30px; margin: 0px 0px 10px 0px; padding: 0px 5px 0px 5px; border: 1px solid #2a5d9c; font-size: 16px; color: #ffffff; background: #112f55; float: left; display: inline; }
+input.reset									{ width: 80px; height: 32px; padding: 0px; margin: 0px 0px 0px 5px; float: left; display: inline; }
+.list_filter ul								{ list-style: none; margin: 0px; padding: 0px; }
+.list_filter ul li							{ width: 300px; height: 30px; margin: 0px; border-bottom: 1px solid #061220; background: url(../images/list-item-bg.gif) 0px 0px no-repeat; }
+.list_filter ul li	a						{ display: block; width: 293px; height: 23px; padding: 7px 0px 0px 7px; color: #ffffff; text-decoration: none; }
+.list_filter ul li	a:hover					{ text-decoration: underline; }
+	
+.table_filter table							{ width: 500px; }
+.table_filter table tr						{ width: 500px; height: 30px; margin: 0px; padding: 0px 0px 0px 0px; border: 0px; border-bottom: 1px solid #061220; background: #174175; }
+.table_filter table thead tr				{ background: #2a5d9c; }
+.table_filter table tr td.title				{ width: 425px; text-align: left; border-right: 1px solid #061220; padding: 5px 0px 0px 5px; }
+.table_filter table tr th.title				{ width: 425px; text-align: left; border-right: 1px solid #061220; padding: 5px 0px 0px 5px; }
+.table_filter table tr td.date				{ width: 65px; text-align: left; padding: 5px 0px 0px 5px; }
+.table_filter table tr th.date				{ width: 65px; text-align: left; padding: 5px 0px 0px 5px; }	
