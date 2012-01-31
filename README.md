@@ -69,26 +69,22 @@ The full list of available properties, their defaults and what they expect are l
 
 # Changelog
 
-Version 1.3
++Version 1.3
 	+ Completely re-written from scratch.
 	+ Added delay feature to increase performance during fast typing.
 	+ Added default text option which adds default text to text inputs.
 	+ Added an option to allow hiding of the list/table as the default state.
 	+ Added the ability zebra stripe a list/table that also keeps it's correct striping as it is filtered.
 	+ Added an option to automatically generate text and reset inputs in the wrapping div.
-
-Version 1.2
++Version 1.2
 	+ Performance and flexibility improvments.
 	+ Improved table support.
 	+ Added optional filter animations.
 	+ Intelligent element detection.
-
-Version 1.1
++Version 1.1
 	+ Added support for filtering tables.
 	+ Code optimizations.
-
-Version 1.0.1
++Version 1.0.1
 	+ Fixed an expression compatibility issue with jQuery 1.3.x
-
-Version 1.0.0
++Version 1.0.0
 	+ Initial Version.
