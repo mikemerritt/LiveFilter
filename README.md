@@ -69,12 +69,6 @@ The full list of available properties, their defaults and what they expect are l
 
 # Changelog
 
-Version 1.5
-	+ Re-organized the code to make it easier to read.
-
-Version 1.4
-	+ Unused Version Number due to a release being mislabeled as 1.4
-
 Version 1.3
 	+ Completely re-written from scratch.
 	+ Added delay feature to increase performance during fast typing.
