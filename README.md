@@ -31,7 +31,7 @@ If your list follows the proper structure like above, you can then call the `liv
 
 ```html
 <script type="text/javascript">
-	$('#wrapping_div').listFilter();
+	$('#wrapping_div').liveFilter();
 </script>
 ````
 
@@ -39,7 +39,7 @@ If you need custom settings you can set them like this.
 
 ```html
 <script type="text/javascript">
-	$('#wrapping_div').listFilter({
+	$('#wrapping_div').liveFilter({
 		delay: 300, 
 		defaultText: 'Custom Default Text:'
 	});
