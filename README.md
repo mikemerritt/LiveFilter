@@ -41,7 +41,12 @@ If you need custom settings you can set them like this.
 <script type="text/javascript">
 	$('#wrapping_div').liveFilter({
 		delay: 300, 
-		defaultText: 'Custom Default Text:'
+		defaultText: 'Custom Default Text:',
+		zebra: {
+			enabled: true,
+			baseColor: '#13345d',
+			altColor: '#174175'
+		}
 	});
 </script>
 ```
@@ -60,14 +65,29 @@ The full list of available properties, their defaults and what they expect are l
 + addInputs - Will automatically add text and reset inputs inside the wrapping div.
 	+ Default: False
 	+ Expects: True/False
-+ zebra - Used to add zebra striping to the list/table.
-	+ Default: False
-	+ Expects: False/Hex color code to be used for one set of stripes.
-+ zBase - The second color to use for zebra stripijng Only used when zebra is not false.
-	+ Default: False
-	+ Expects: False/Hex color code to be used for second set of stripes.
++ noMatches - Will display text if no matches are found.
+	+ Default: 'No Matches'
+	+ Expects: String
++ zebra - An object for all zebra-striping settings.
+	+ enabled - Toggles zebra-striping on/off.
+		+ Default: False
+		+ Expects: True/False
+	+ baseColor - The base color to be used for zebra striping.
+		+ Default: False
+		+ Expects: False/Hex color string.
+	+ altColor - The alternate color for zebra striping.
+		+ Default: False
+		+ Expects: False/Hex color string.
 
 # Changelog
+
++ Version 1.4
+	+ Refactored code & updated for jQuery 1.7.
+	+ Added "No matches" text.
+	+ Added Non-consecutive search. E.g. A filter of "hot mustard" would match the list item "hot dog with mustard"
+	+ Changed zebra-striping options
+	+ Performance improvements.
+	+ Fixed hideDefault so that when no filter is supplied it will revert back to it's hidden state.
 
 + Version 1.3
 	+ Completely re-written from scratch.
@@ -76,15 +96,19 @@ The full list of available properties, their defaults and what they expect are l
 	+ Added an option to allow hiding of the list/table as the default state.
 	+ Added the ability zebra stripe a list/table that also keeps it's correct striping as it is filtered.
 	+ Added an option to automatically generate text and reset inputs in the wrapping div.
+
 + Version 1.2
 	+ Performance and flexibility improvments.
 	+ Improved table support.
 	+ Added optional filter animations.
 	+ Intelligent element detection.
+
 + Version 1.1
 	+ Added support for filtering tables.
 	+ Code optimizations.
+
 + Version 1.0.1
 	+ Fixed an expression compatibility issue with jQuery 1.3.x
+
 + Version 1.0.0
 	+ Initial Version.

@@ -14,12 +14,12 @@
 			defaultText: 'Type to Filter:',
 			noMatches: 'No Matches',
 			hideDefault: false,
+			addInputs: false,
 			zebra: {
 				enabled: false,
 				baseColor: false,
 				altColor: false
-			},
-			addInputs: false
+			}
 		};
 
 		// Overwrite default settings with user provided ones. Declare some vars.
@@ -63,27 +63,44 @@
 
 				filter = input.val().toLowerCase();
 				var visible = 0;
-				
-				// Iterate through list and show/hide the proper elements.
-				list.each(function(i) {
-					text = $(this).text().toLowerCase();
+				var words = filter.split(' ');
 
-					if (text.indexOf(filter) >= 0) {
-						visible++;
-						$(this).show();
-					} else {
+				if (filter === '' && options.hideDefault === true) {
+					list.each(function(i) {
 						$(this).hide();
+					})
+				} else {
+					// Iterate through list and show/hide the proper elements.
+					list.each(function(i) {
+						text = $(this).text().toLowerCase();
+	
+						// Non consecutive filtering
+						for (var t = 0; t < words.length; t++) {
+							if (text.indexOf(words[t]) < 0) {
+								var match = false;
+								break;
+							} else {
+								var match = true;
+							}
+						}
+	
+						if (match === true) {
+							visible ++;
+							$(this).show();
+						} else if (match === false) {
+							$(this).hide();
+						}
+					});
+	
+					if (visible === 0) {
+						nomatches.show();
+					} else if (visible > 0) {
+						nomatches.hide();
 					}
-				});
-
-				if (visible === 0) {
-					nomatches.show();
-				} else if (visible > 0) {
-					nomatches.hide();
-				}
-
-				if(options.zebra.enabled != false) {
-					zebraStriping();
+	
+					if(options.zebra.enabled != false) {
+						zebraStriping();
+					}
 				}
 
 				clearTimeout(keyDelay);
@@ -92,7 +109,7 @@
 		});
 
 		// Used to reset our text input and show all items in the filtered list
-		wrap.find('input[type="reset"]').click(function() {
+		wrap.find('input[type="reset"]').on("click", function() {
 
 			if (options.defaultText === false) {
 
