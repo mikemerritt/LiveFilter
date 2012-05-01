@@ -1,6 +1,6 @@
 # License Information
 LiveFilter jQuery Plugin
-http://www.mikemerritt.me/labs/livefilter/
+https://github.com/mikemerritt/LiveFilter
 
 COPYRIGHT (c) 2010-2012 Mike Merritt
 http://www.mikemerritt.me
