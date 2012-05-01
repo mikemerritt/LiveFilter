@@ -88,6 +88,7 @@ The full list of available properties, their defaults and what they expect are l
 	+ Changed zebra-striping options
 	+ Performance improvements.
 	+ Fixed hideDefault so that when no filter is supplied it will revert back to it's hidden state.
+	+ Updated readme.
 
 + Version 1.3
 	+ Completely re-written from scratch.
