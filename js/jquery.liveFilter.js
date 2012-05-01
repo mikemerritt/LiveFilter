@@ -1,8 +1,8 @@
 /***********************************************************/
 /*                    LiveFilter Plugin                    */
-/*                      Version: 1.3                       */
+/*                      Version: 1.4                       */
 /*                      Mike Merritt                       */
-/*             	   Updated: Mar 04, 2011                   */
+/*        https://github.com/mikemerritt/LiveFilter        */
 /***********************************************************/
 
 (function($){
@@ -12,26 +12,30 @@
 		var defaults = {
 			delay: 0,
 			defaultText: 'Type to Filter:',
+			noMatches: 'No Matches',
 			hideDefault: false,
-			zebra: false,
-			zBase: false,
+			zebra: {
+				enabled: false,
+				baseColor: false,
+				altColor: false
+			},
 			addInputs: false
-
 		};
 
-		// Overwrite default settings with user provided ones.
-		var options = $.extend({}, defaults, options);
+		// Overwrite default settings with user provided ones. Declare some vars.
+		var options = $.extend(defaults, options);
+		var keyDelay, filter, child;
 		
-		// Cache our wrapper element and determine what target we are going to be filtering,
-		// also declare a couple more vars for global use.
+		// Cache our wrapper element and find our target list.
 		var wrap = $(this);
 		var filterTarget = wrap.find('ul, ol, table');
-		var keyDelay;
-		var filter;
-		var child;
 
-		// Determine what sub elements we are going to be showing/hiding depending on 
-		// what our filter target is.
+		// Add no matches text.
+		wrap.append('<div class="nomatches">'+options.noMatches+'</div>');
+		var nomatches = $('.nomatches');
+		nomatches.hide();
+
+		// Determine our child element type.
 		if (filterTarget.is('ul') || filterTarget.is('ol')) {
 			child = 'li';
 		} else if (filterTarget.is('table')) {
@@ -40,49 +44,50 @@
 
 		// Hide the list/table by default. If not being hidden apply zebra striping if needed.
 		if (options.hideDefault === true) {
-			$(filterTarget).find(child).hide()
-		} else if (options.hideDefault === false && options.zebra != false) {
+			filterTarget.find(child).hide();
+		} else if (options.hideDefault === false && options.zebra.enabled != false) {
 			zebraStriping();
 		}
 
-		// Cache all of our list/table elements so we don't have to select them over and over again.
-		var cache = $(filterTarget).find(child);
+		// Cache list/table elements so we don't have to keep traversing the DOM.
+		var list = filterTarget.find(child);
 		
-		// Text input keyup event
-		wrap.find('input[type="text"]').keyup(function() {
+		// Keyup event - where the magic happens.
+		wrap.find('input[type="text"]').on("keyup", function() {
 
-			// For use in the following callback.
 			var input = $(this);
-
-			// Used to reset the timeout so we can start over again if another key is pressed
-			// before our current timeout has expired.
 			clearTimeout(keyDelay);
 
-			// Adding a timeout before we do any iterating or showing/hiding to help with performance
-			// when the user types very quickly.
+			// Setting timeout for performance reasons.
 			keyDelay = setTimeout(function () { 
 
-				// Getting the text to filter.
 				filter = input.val().toLowerCase();
+				var visible = 0;
 				
-				// Iterate through our cache of elements and match our supplied filter to the text of the element.
-				cache.each(function(i) {
+				// Iterate through list and show/hide the proper elements.
+				list.each(function(i) {
 					text = $(this).text().toLowerCase();
+
 					if (text.indexOf(filter) >= 0) {
+						visible++;
 						$(this).show();
 					} else {
 						$(this).hide();
 					}
 				});
 
-				if(options.zebra != false) {
+				if (visible === 0) {
+					nomatches.show();
+				} else if (visible > 0) {
+					nomatches.hide();
+				}
+
+				if(options.zebra.enabled != false) {
 					zebraStriping();
 				}
 
 				clearTimeout(keyDelay);
-
 			}, options.delay);
-			
 
 		});
 
@@ -94,11 +99,11 @@
 				wrap.find('input[type="text"]').attr('value', '');
 
 				if (options.hideDefault === false) {
-					cache.each(function(i) {
+					list.each(function(i) {
 						$(this).show();
 					});
 				} else if (options.hideDefault === true) {
-					cache.each(function(i) {
+					list.each(function(i) {
 						$(this).hide();
 					});
 				}
@@ -108,51 +113,42 @@
 				wrap.find('input[type="text"]').attr('value', options.defaultText);
 
 				if (options.hideDefault === false) {
-					cache.each(function(i) {
+					list.each(function(i) {
 						$(this).show();
 					});
 				} else if (options.hideDefault === true) {
-					cache.each(function(i) {
+					list.each(function(i) {
 						$(this).hide();
 					});
 				}
 
 			}
-			
 			return false;
-
 		});
-
 
 		// Used to set the default text of the text input if there is any
 		if (options.defaultText != false) {
-			var input = wrap.find('input[type="text"]');
 
+			var input = wrap.find('input[type="text"]');
 			input.attr('value', options.defaultText);
 
 			input.focus(function() {
-				
 				var curVal = $(this).attr('value');
-
 				if (curVal === options.defaultText) {
 					$(this).attr('value', '');
 				}
-
 			});
 
 			input.blur(function() {
-				
 				var curVal = $(this).attr('value');
-
 				if (curVal === '') {
 					$(this).attr('value', options.defaultText);
 				}
-
 			});
 
 		}
 
-		// Used to add inputs to the wrapping div if set to true.
+		// Add inputs if required
 		if (options.addInputs === true) {
 			var markup = '<input class="filter" type="text" value="" /><input class="reset" type="reset" value="Reset!" />';
 			wrap.prepend(markup);
@@ -160,9 +156,8 @@
 
 		// Used for zebra striping list/table.
 		function zebraStriping() {
-
-			$(filterTarget).find(child + ':visible:odd').css({ background: options.zebra });
-			$(filterTarget).find(child + ':visible:even').css({ background: options.zBase });
+			filterTarget.find(child + ':visible:odd').css({ background: options.zebra.baseColor });
+			filterTarget.find(child + ':visible:even').css({ background: options.zebra.altColor });
 		}
 
 	}

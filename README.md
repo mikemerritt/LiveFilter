@@ -1,5 +1,5 @@
 # License Information
-LiveFilter + jQuery Plugin
+LiveFilter jQuery Plugin
 http://www.mikemerritt.me/labs/livefilter/
 
 COPYRIGHT (c) 2010-2012 Mike Merritt
