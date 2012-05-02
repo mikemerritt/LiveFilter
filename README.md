@@ -16,6 +16,8 @@ LiveFilter expects your list to use a certain HTML structure. It can be used on 
 
 ```html
 <div id="wrapping_div">
+	<input class="filter" type="text" value="" />
+	<input class="reset" type="reset" value="Reset!" />
 	<ul>
 		<li>List Item</li>
 		<li>List Item</li>
