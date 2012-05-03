@@ -7,7 +7,16 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.liveFilter.js"></script>
     <script src="javascripts/scale.fix.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('.livefilter').liveFilter({
+        addInputs: true
+      });
+    });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
@@ -43,6 +52,65 @@ part of this distribution. Redistributions of files must retain the above copyri
 <h1>Description</h1>
 
 <p>LiveFilter is a jQuery plugin that can be used to sort lists of data in realtime, as you type.</p>
+
+<h1>Live Demo</h1>
+
+<p>This demo will filter a portion of the IMDB top 200 list.</p>
+
+<div class="livefilter">
+  <ul>
+    <li>The Shawshank Redemption (1994)</li>
+    <li>The Godfather (1972)</li>
+    <li>The Godfather: Part II (1974)</li>
+    <li>Il buono, il brutto, il cattivo. (1966)</li>
+    <li>Pulp Fiction (1994)</li>
+    <li>The Dark Knight (2008)</li>
+    <li>Schindler's List (1993)</li>
+    <li>One Flew Over the Cuckoo's Nest (1975)</li>
+    <li>12 Angry Men (1957)</li>
+    <li>The Empire Strikes Back (1980)</li>
+    <li>Casablanca (1942)</li>
+    <li>Star Wars (1977)</li>
+    <li>Shichinin no samurai (1954)</li>
+    <li>LotR: The Return of the King (2003)</li>
+    <li>Goodfellas (1990)</li>
+    <li>Rear Window (1954)</li>
+    <li>Cidade de Deus (2002)</li>
+    <li>Raiders of the Lost Ark (1981)</li>
+    <li>C'era una volta il West (1968)</li>
+    <li>LotR: The Fellowship of the Ring (2001)</li>
+    <li>Fight Club (1999</a></li>
+    <li>The Usual Suspects (1995)</li>
+    <li>Psycho (1960)</li>
+    <li>The Silence of the Lambs (1991)</li>
+    <li>Sunset Blvd.(1950)</li>
+    <li>Dr. Strangelove (1964)</li>
+    <li>The Matrix (1999)</li>
+    <li>Momento (2000)</li>
+    <li>North by Northwest (1959)</li>
+    <li>It's a Wonderful Life (1946)</li>
+    <li>Citizen Kane (1941)</li>
+    <li>Se7en (1995)</li>
+    <li>LotR: The Two Towers (2002)</li>
+    <li>Léon (1994)</li>
+    <li>Apocalypse Now (1979)</li>
+    <li>American Beauty (1999)</li>
+    <li>Taxi Driver (1976)</li>
+    <li>American History X (1998)</li>
+    <li>Lawrence of Arabia (1962)</li>
+    <li>Vertigo (1958)</li>
+    <li>WALL·E (2008)</li>
+    <li>Forrest Gump (1994)</li>
+    <li>Paths of Glory (1957)</li>
+    <li>Le fabuleux destin d'Amélie Poulain (2001)</li>
+    <li>M (1931)</li>
+    <li>Double Indemnity (1944)</li>
+    <li>To Kill a Mockingbird (1962)</li>
+    <li>Alien (1979)</li>
+    <li>A Clockwork Orange (1971)</li>
+    <li>The Treasure of the Sierra Madre (1948)</li>
+  </ul>
+</div>
 
 <h1>How to Use</h1>
 
