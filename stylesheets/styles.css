@@ -302,6 +302,10 @@ footer p + p {
   float: right;
 }
 
+.livefilter ul {
+  margin-top: 15px;
+}
+
 @media print, screen and (max-width: 740px) {
   body {
     padding: 0;
