@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>LiveFilter by mikemerritt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>LiveFilter</h1>
+        <p>Super simple list filtering.</p>
+        <p class="view"><a href="https://github.com/mikemerritt/LiveFilter">View the Project on GitHub <small>mikemerritt/LiveFilter</small></a></p>
+        <ul>
+          <li><a href="https://github.com/mikemerritt/LiveFilter/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mikemerritt/LiveFilter/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mikemerritt/LiveFilter">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>License Information</h1>
+
+<p>LiveFilter jQuery Plugin</p>
+
+<p><a href="https://github.com/mikemerritt/LiveFilter">https://github.com/mikemerritt/LiveFilter</a></p>
+
+<p>COPYRIGHT (c) 2010-2012 Mike Merritt</p>
+
+<p><a href="http://www.mikemerritt.me">http://www.mikemerritt.me</a></p>
+
+<p>The terms of this software are described in the file LICENSE, which you should have received as
+part of this distribution. Redistributions of files must retain the above copyright notice.</p>
+
+<h1>Description</h1>
+
+<p>LiveFilter is a jQuery plugin that can be used to sort lists of data in realtime, as you type.</p>
+
+<h1>How to Use</h1>
+
+<p>LiveFilter expects your list to use a certain HTML structure. It can be used on ordered/unordered lists and tables. Your list must reside inside of a div that the plugin will be targeting. An example of the structure is below.</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"wrapping_div"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"filter"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"reset"</span> <span class="na">type=</span><span class="s">"reset"</span> <span class="na">value=</span><span class="s">"Reset!"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li&gt;</span>List Item<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>List Item<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>List Item<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>List Item<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>List Item<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>List Item<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>If your list follows the proper structure like above, you can then call the <code>liveFilter()</code> function on the wrapping div like so.</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#wrapping_div'</span><span class="p">).</span><span class="nx">liveFilter</span><span class="p">();</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre>
+</div>
+
+
+<p>If you need custom settings you can set them like this.</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#wrapping_div'</span><span class="p">).</span><span class="nx">liveFilter</span><span class="p">({</span>
+        <span class="nx">delay</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span> 
+        <span class="nx">defaultText</span><span class="o">:</span> <span class="s1">'Custom Default Text:'</span><span class="p">,</span>
+        <span class="nx">zebra</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">baseColor</span><span class="o">:</span> <span class="s1">'#13345d'</span><span class="p">,</span>
+            <span class="nx">altColor</span><span class="o">:</span> <span class="s1">'#174175'</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre>
+</div>
+
+
+<p>The full list of available properties, their defaults and what they expect are listed below.</p>
+
+<ul>
+<li>delay - A delay between when typing starts and when the list starts to filter.
+
+<ul>
+<li>Default: 0</li>
+<li>Expects: Number</li>
+</ul>
+</li>
+<li>defaultText - The default text inside of the text input.
+
+<ul>
+<li>Default: 'Type to Filter:'</li>
+<li>Exepcts: String</li>
+</ul>
+</li>
+<li>hideDefault - Hides the full list by default.
+
+<ul>
+<li>Default: False</li>
+<li>Expects: True/False</li>
+</ul>
+</li>
+<li>addInputs - Will automatically add text and reset inputs inside the wrapping div.
+
+<ul>
+<li>Default: False</li>
+<li>Expects: True/False</li>
+</ul>
+</li>
+<li>noMatches - Will display text if no matches are found.
+
+<ul>
+<li>Default: 'No Matches'</li>
+<li>Expects: String</li>
+</ul>
+</li>
+<li>zebra - An object for all zebra-striping settings.
+
+<ul>
+<li>enabled - Toggles zebra-striping on/off.
+
+<ul>
+<li>Default: False</li>
+<li>Expects: True/False</li>
+</ul>
+</li>
+<li>baseColor - The base color to be used for zebra striping.
+
+<ul>
+<li>Default: False</li>
+<li>Expects: False/Hex color string.</li>
+</ul>
+</li>
+<li>altColor - The alternate color for zebra striping.
+
+<ul>
+<li>Default: False</li>
+<li>Expects: False/Hex color string.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h1>Changelog</h1>
+
+<ul>
+<li>Version 1.4
+
+<ul>
+<li>Refactored code &amp; updated for jQuery 1.7.</li>
+<li>Added "No matches" text.</li>
+<li>Added Non-consecutive search. E.g. A filter of "hot mustard" would match the list item "hot dog with mustard"</li>
+<li>Changed zebra-striping options</li>
+<li>Performance improvements.</li>
+<li>Fixed hideDefault so that when no filter is supplied it will revert back to it's hidden state.</li>
+<li>Updated readme.</li>
+</ul>
+</li>
+<li>Version 1.3
+
+<ul>
+<li>Completely re-written from scratch.</li>
+<li>Added delay feature to increase performance during fast typing.</li>
+<li>Added default text option which adds default text to text inputs.</li>
+<li>Added an option to allow hiding of the list/table as the default state.</li>
+<li>Added the ability zebra stripe a list/table that also keeps it's correct striping as it is filtered.</li>
+<li>Added an option to automatically generate text and reset inputs in the wrapping div.</li>
+</ul>
+</li>
+<li>Version 1.2
+
+<ul>
+<li>Performance and flexibility improvments.</li>
+<li>Improved table support.</li>
+<li>Added optional filter animations.</li>
+<li>Intelligent element detection.</li>
+</ul>
+</li>
+<li>Version 1.1
+
+<ul>
+<li>Added support for filtering tables.</li>
+<li>Code optimizations.</li>
+</ul>
+</li>
+<li>Version 1.0.1
+
+<ul>
+<li>Fixed an expression compatibility issue with jQuery 1.3.x</li>
+</ul>
+</li>
+<li>Version 1.0.0
+
+<ul>
+<li>Initial Version.</li>
+</ul>
+</li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/mikemerritt">mikemerritt</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3000821-5");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
