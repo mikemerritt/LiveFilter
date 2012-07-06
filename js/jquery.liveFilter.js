@@ -57,6 +57,7 @@
 
     // Used to reset our text input and show all items in the filtered list
     wrap.find('input[type="reset"]').on("click", function() {
+      nomatches.hide();
 
       if (options.defaultText === false) {
 
