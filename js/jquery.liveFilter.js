@@ -164,8 +164,6 @@
             nomatches.hide();
           }
 
-          console.log(options.ignore);
-
           if (options.ignore != false) {
             options.ignore.show();
           }
