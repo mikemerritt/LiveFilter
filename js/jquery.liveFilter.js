@@ -6,7 +6,7 @@
 /***********************************************************/
 
 (function($){
-  $.fn.liveFilter = function (options) {
+  $.fn.liveFilter = function (settings) {
 
     // Default settings
     var defaults = {
@@ -15,6 +15,7 @@
       noMatches: 'No Matches',
       hideDefault: false,
       addInputs: false,
+      ignore: false,
       zebra: {
         enabled: false,
         baseColor: false,
@@ -23,7 +24,7 @@
     };
 
     // Overwrite default settings with user provided ones. Declare some vars.
-    var options = $.extend(defaults, options);
+    var options = $.extend(defaults, settings);
     var keyDelay, filter, child;
 
     // Cache our wrapper element and find our target list.
@@ -138,28 +139,35 @@
           list.each(function(i) {
             text = $(this).text().toLowerCase();
 
-            // Non consecutive filtering
-            for (var t = 0; t < words.length; t++) {
-              if (text.indexOf(words[t]) < 0) {
-                var match = false;
-                break;
-              } else {
-                var match = true;
+              // Non consecutive filtering
+              for (var t = 0; t < words.length; t++) {
+                if (text.indexOf(words[t]) < 0) {
+                  var match = false;
+                  break;
+                } else {
+                  var match = true;
+                }
               }
-            }
 
-            if (match === true) {
-              visible ++;
-              $(this).show();
-            } else if (match === false) {
-              $(this).hide();
-            }
+              if (match === true) {
+                visible ++;
+                $(this).show();
+              } else if (match === false) {
+                $(this).hide();
+              }
+
           });
 
           if (visible === 0) {
             nomatches.show();
           } else if (visible > 0) {
             nomatches.hide();
+          }
+
+          console.log(options.ignore);
+
+          if (options.ignore != false) {
+            options.ignore.show();
           }
 
           if(options.zebra.enabled != false) {
