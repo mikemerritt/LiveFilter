@@ -1,0 +1,27 @@
+{
+  "name": "liveFilter",
+  "title": "LiveFilter",
+  "description": "Quickly sort lists of data.",
+  "version": "1.4.0",
+  "homepage": "http://mikemerritt.github.io/LiveFilter/",
+  "author": {
+    "name": "Mike Merritt",
+    "email": "mikemerritt.dev@gmail.com",
+    "url": "http://mikemerritt.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikemerritt/LiveFilter.git"
+  },
+  "bugs": "https://github.com/mikemerritt/LiveFilter/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://mikemerritt.github.io/LiveFilter//blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
