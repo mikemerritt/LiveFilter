@@ -1,3 +1,42 @@
 {
-	
+  "name": "LiveFilter",
+  "title": "jQuery List Filter Plugin",
+  "description": "Quickly filter tables of lists.",
+  "version": "2.0.0",
+  "homepage": "http://mikemerritt.github.io/LiveFilter/",
+  "author": {
+    "name": "Mike Merritt",
+    "email": "mikemerritt.dev@gmail.com",
+    "url": "http://mikemerritt.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikemerritt/LiveFilter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikemerritt/LiveFilter/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-contrib-qunit": "~0.3.0",
+    "grunt-contrib-watch": "~0.3.1"
+  },
+  "keywords": [
+    "table",
+    "filter",
+    "ajax",
+    "list",
+    "live"
+  ]
 }
