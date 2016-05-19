@@ -12,7 +12,9 @@
     var defaults = {
       delay: 0,
       defaultText: 'Type to Filter:',
+      resetText: 'Reset',
       noMatches: 'No Matches',
+      fitlerTargetCustomDiv: 'div',
       hideDefault: false,
       addInputs: false,
       ignore: false,
@@ -29,7 +31,7 @@
 
     // Cache our wrapper element and find our target list.
     var wrap = $(this);
-    var filterTarget = wrap.find('ul, ol, table');
+    var filterTarget = wrap.find('ul, ol, table, div');
 
     // Add no matches text.
     wrap.append('<div class="nomatches">'+options.noMatches+'</div>');
@@ -41,6 +43,8 @@
       child = 'li';
     } else if (filterTarget.is('table')) {
       child = 'tbody tr';
+    } else {
+      child = options.fitlerTargetCustomDiv;
     }
 
     // Hide the list/table by default. If not being hidden apply zebra striping if needed.
@@ -52,7 +56,7 @@
 
     // Add inputs if required
     if (options.addInputs === true) {
-      var markup = '<input class="filter" type="text" value="" /><input class="reset" type="reset" value="Reset!" />';
+      var markup = '<input class="filter" type="text" value="" /><input class="reset" type="reset" value="' + options.resetText + '" />';
       wrap.prepend(markup);
     }
 
@@ -138,7 +142,6 @@
           // Iterate through list and show/hide the proper elements.
           list.each(function(i) {
             text = $(this).text().toLowerCase();
-
               // Non consecutive filtering
               for (var t = 0; t < words.length; t++) {
                 if (text.indexOf(words[t]) < 0) {
@@ -155,7 +158,6 @@
               } else if (match === false) {
                 $(this).hide();
               }
-
           });
 
           if (visible === 0) {
