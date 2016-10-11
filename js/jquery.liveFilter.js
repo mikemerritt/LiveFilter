@@ -7,7 +7,6 @@
 
 (function($){
   $.fn.liveFilter = function (settings) {
-
     // Default settings
     var defaults = {
       delay: 0,
@@ -31,7 +30,7 @@
 
     // Cache our wrapper element and find our target list.
     var wrap = $(this);
-    var filterTarget = wrap.find('ul, ol, table, div');
+    var filterTarget = wrap.find('ul, ol, table,div');
 
     // Add no matches text.
     wrap.append('<div class="nomatches">'+options.noMatches+'</div>');
@@ -39,12 +38,12 @@
     nomatches.hide();
 
     // Determine our child element type.
-    if (filterTarget.is('ul') || filterTarget.is('ol')) {
+    if (options.fitlerTargetCustomDiv) {
+      child = options.fitlerTargetCustomDiv;
+    } else if (filterTarget.is('ul') || filterTarget.is('ol')) {
       child = 'li';
     } else if (filterTarget.is('table')) {
       child = 'tbody tr';
-    } else {
-      child = options.fitlerTargetCustomDiv;
     }
 
     // Hide the list/table by default. If not being hidden apply zebra striping if needed.
@@ -93,6 +92,7 @@
         }
 
       }
+
       return false;
     });
 
@@ -103,16 +103,16 @@
       input.attr('value', options.defaultText);
 
       input.focus(function() {
-        var curVal = $(this).attr('value');
-        if (curVal === options.defaultText) {
-          $(this).attr('value', '');
+        var currentVal = $(this).val();
+        if (currentVal === options.defaultText) {
+          $(this).val('');
         }
       });
 
       input.blur(function() {
-        var curVal = $(this).attr('value');
-        if (curVal === '') {
-          $(this).attr('value', options.defaultText);
+        var currentVal = $(this).val(); 
+        if (currentVal === '') {
+          $(this).val(options.defaultText);
         }
       });
 
@@ -126,6 +126,13 @@
 
       var input = $(this);
       clearTimeout(keyDelay);
+
+      // Add a class that the text has been processed
+      if (input.val() !== '') {
+        wrap.addClass('live-filter-processed');
+      } else {
+        wrap.removeClass('live-filter-processed');
+      }
 
       // Setting timeout for performance reasons.
       keyDelay = setTimeout(function () { 
