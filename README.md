@@ -1,5 +1,5 @@
 # THIS IS OLD
-This plugin is no longer actively developed. There are numerous other better solutions available.
+This plugin is no longer actively developed. There are numerous other better solutions available that you should use instead.
 
 # License Information
 LiveFilter jQuery Plugin
