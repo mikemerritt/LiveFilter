@@ -1,4 +1,4 @@
-# License Information
+# THIS IS OLD
 This plugin is no longer actively developed. There are numerous other better solutions available.
 
 # License Information
