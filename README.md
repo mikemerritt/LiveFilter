@@ -1,9 +1,9 @@
 # License Information
+This plugin is no longer actively developed. There are numerous other better solutions available.
+
+# License Information
 LiveFilter jQuery Plugin
 https://github.com/mikemerritt/LiveFilter
-
-COPYRIGHT (c) 2010-2012 Mike Merritt
-http://www.mikemerritt.me
 
 The terms of this software are described in the file LICENSE, which you should have received as
 part of this distribution. Redistributions of files must retain the above copyright notice.
